@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify, make_response
 from flask.views import MethodView
 
 
@@ -9,11 +9,11 @@ class LoginUserAPI(MethodView):
     methods = ["GET"]
 
     def get(self):
-        return "Login user API."
+        return make_response(jsonify({"message": "Login user API working!!", "status_code": 200}))
 
 
 class RegisterUserAPI(MethodView):
     methods = ["GET"]
     
     def get(self):
-        return "Register User API."
+        return make_response(jsonify({"message": "Register user API working!!", "status_code": 200}))
