@@ -1,22 +1,24 @@
 from flask import Flask
 import os
 
-from route_registry import register_routes
-from blueprint_registry import register_bluprints
-from config import config
+from Config import config
 
 app = Flask(__name__)
 
-env = os.environ.get("ENV").lower()
 
+env = os.environ.get("ENV").lower()
+print(env)
 if env == "development":
     app.config.from_object(config.DevelopmentConfig)
 elif env == "production":
     app.config.from_object(config.ProductionConfig)
 
 
-register_routes()
-register_bluprints(app)
+
+
+@app.route('/')
+def home():
+    return "User service is up and working."
 
 
 if __name__ == "__main__":
