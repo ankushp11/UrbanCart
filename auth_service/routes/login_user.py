@@ -9,11 +9,11 @@ class LoginUserAPI(MethodView):
     methods = ["GET"]
 
     def get(self):
-        return make_response(jsonify({"message": "Login user API working!!", "status_code": 200}))
+        return jsonify({"message": "Login user API working!!"}), 200
 
 
 class RegisterUserAPI(MethodView):
     methods = ["GET"]
-    
+
     def get(self):
-        return make_response(jsonify({"message": "Register user API working!!", "status_code": 200}))
+        return jsonify({"message": "Register user API working!!"}), 200
