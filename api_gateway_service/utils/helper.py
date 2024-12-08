@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, Response
 
 
 def make_response(message, status_code, data=None, errors=None, pagination=None):
@@ -18,6 +18,17 @@ def make_response(message, status_code, data=None, errors=None, pagination=None)
         "errors": errors,
         "pagination": pagination,
     }
-    
+
     response = {key: value for key, value in response.items() if value is not None}
-    return jsonify(response), status_code
+    response = jsonify(response)
+    response.status_code = status_code
+    return response
+
+
+def convert_response_from_httpx_to_flask(httpx_response):
+    flask_response = Response(
+        httpx_response.content,
+        status=httpx_response.status_code,
+        headers=dict(httpx_response.headers),
+    )
+    return flask_response
