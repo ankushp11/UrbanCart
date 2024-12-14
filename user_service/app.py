@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 env = os.environ.get("ENV").lower()
-print(env)
+
 if env == "development":
     app.config.from_object(config.DevelopmentConfig)
 elif env == "production":

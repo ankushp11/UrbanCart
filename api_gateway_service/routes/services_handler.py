@@ -2,9 +2,9 @@ from flask import Blueprint, request
 from flask.views import MethodView
 import httpx
 
-from constants.services import Services
-from constants.messages import ErrorMessages, HTTPStatusCodes
-from utils.helper import make_response, convert_response_from_httpx_to_flask
+from common.constants.services import Services
+from common.constants.messages import ErrorMessages, HTTPStatusCodes
+from common.utils.response_formatter import make_response, convert_response_from_httpx_to_flask
 
 
 service_handler = Blueprint(name="service_handler", import_name="__name__")
