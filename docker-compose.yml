@@ -16,6 +16,7 @@ services:
       - user_service
     volumes:
       - ./api_gateway_service:/app
+      - ./common:/app/common
 
   auth_service:
     build:
@@ -27,6 +28,7 @@ services:
       - db
     volumes:
       - ./auth_service:/app
+      - ./common:/app/common
   
   user_service:
     build:
@@ -38,6 +40,7 @@ services:
       - db
     volumes:
       - ./user_service:/app
+      - ./common:/app/common
   
   db:
     image: postgres:15
