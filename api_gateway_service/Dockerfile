@@ -1,13 +1,13 @@
 FROM python:3.12-slim
 
-WORKDIR /app
+WORKDIR /urbancart/app
 
-COPY requirements.txt .
+COPY ./api_gateway_service/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ../common /app/common
+COPY ./common /urbancart/app/common
 
-COPY . .
+COPY ./api_gateway_service .
 
 CMD [ "python", "app.py" ]

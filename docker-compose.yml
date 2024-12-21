@@ -4,8 +4,8 @@ services:
 
   api_gateway_service:
     build:
-      context: ./api_gateway_service
-      dockerfile: Dockerfile
+      context: . 
+      dockerfile: ./api_gateway_service/Dockerfile
     env_file:
       - .env
     ports:
@@ -16,31 +16,28 @@ services:
       - user_service
     volumes:
       - ./api_gateway_service:/app
-      - ./common:/app/common
 
   auth_service:
     build:
-      context: ./auth_service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./auth_service/Dockerfile
     env_file:
       - .env
     depends_on:
       - db
     volumes:
       - ./auth_service:/app
-      - ./common:/app/common
   
   user_service:
     build:
-      context: ./user_service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./user_service/Dockerfile
     env_file:
       - .env
     depends_on:
       - db
     volumes:
       - ./user_service:/app
-      - ./common:/app/common
   
   db:
     image: postgres:15
