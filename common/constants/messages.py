@@ -11,6 +11,7 @@ class ErrorMessages(Messages):
         "The service is temporarily unavailable. Please try again later."
     )
     SERVICE_ENDPOINT_UNAVAILABLE_ERR = "Endpoint not available for the request service."
+    SERVICE_DB_NAME_NOT_FOUND = "Database name not found for the service"
 
 
 class HTTPStatusCodes:
