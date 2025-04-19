@@ -1,13 +1,17 @@
 FROM python:3.12-slim
 
+WORKDIR /urbancart
+
+COPY ./user_service/requirements.txt /urbancart/app/
+
+RUN pip install --no-cache-dir -r /urbancart/app/requirements.txt
+
+COPY ./common /urbancart/common
+
+COPY ./user_service /urbancart/app/
+
+ENV PYTHONPATH="/urbancart:${PYTHONPATH}"
+
 WORKDIR /urbancart/app
 
-COPY ./user_service/requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY ./common /urbancart/app/common
-
-COPY ./user_service .
-
-CMD [ "python", "app.py" ]
+CMD ["python", "app.py"]
