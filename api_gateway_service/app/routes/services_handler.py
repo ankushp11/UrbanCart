@@ -71,3 +71,7 @@ class ServiceRouter(MethodView):
                 status_code=HTTPStatusCodes.BAD_GATEWAY,
                 errors=str(e),
             )
+
+
+def register_routes():
+    service_handler.add_url_rule('/<string:service_name>/<path:path>', view_func=ServiceRouter.as_view("service_router"))

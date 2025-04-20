@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "Running the migration script..."
-DIRECTORY=/urbancart/app/migrations
+DIRECTORY=./migrations
 echo "Starting Migration..."
 if [ ! -d "$DIRECTORY" ]; then
   echo "$DIRECTORY does not exist."

@@ -15,7 +15,7 @@ services:
       - auth_service
       - user_service
     volumes:
-      - ./api_gateway_service:/urbancart/app
+      - ./api_gateway_service:/urbancart/api_gateway_service/
 
   auth_service:
     build:
@@ -26,7 +26,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./auth_service:/urbancart/app
+      - ./auth_service:/urbancart/auth_service/
   
   user_service:
     build:
@@ -37,7 +37,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./user_service:/urbancart/app
+      - ./user_service:/urbancart/user_service/
   
   db:
     image: postgres:15

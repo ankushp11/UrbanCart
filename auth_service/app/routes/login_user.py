@@ -17,3 +17,16 @@ class RegisterUserAPI(MethodView):
 
     def get(self):
         return jsonify({"message": "Register user API working!!"}), 200
+
+
+#  register urls/endpoints to the blueprint
+def register_routes():
+    # login endpoint
+    login_bp.add_url_rule(
+        "/login/", view_func=LoginUserAPI.as_view("login_api")
+    )
+
+    # register endpoint
+    login_bp.add_url_rule(
+        "/register/", view_func=RegisterUserAPI.as_view("register_api")
+    )

@@ -1,4 +1,4 @@
-from routes.login_user import login_bp
+from .login_user import login_bp
 
 
 def register_bluprints(app):
